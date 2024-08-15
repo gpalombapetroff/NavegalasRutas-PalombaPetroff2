@@ -1,0 +1,46 @@
+
+.nav{
+  color: aliceblue;  
+  background-color: blue;
+    text-align: center;
+}
+.hola{
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.card {
+    
+    background-color: #ddd;
+    border: 1px solid #333;
+    width: 590px;
+    padding: 0px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+.contador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  img{
+    width: 100px;
+  }
+
+  .cat {
+    font-size: 2rem;
+    background-color: brown;
+    padding-left: 50px;
+    margin-bottom: 20px; 
+  }
