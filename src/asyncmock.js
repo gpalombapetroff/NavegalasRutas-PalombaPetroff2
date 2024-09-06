@@ -24,7 +24,7 @@ const items =[
 
     },
     {id:3,
-        nombre:" Alfajor ",
+        nombre:" alfajor ",
         precio:3000,
         stock:10,
         categoria: "alfajor",
@@ -32,7 +32,7 @@ const items =[
 
     },
     {id:4,
-        nombre:"Mouse",
+        nombre:"mouse",
         precio:3000,
         stock:10,
         categoria: "tortas",
@@ -53,7 +53,7 @@ export const getProducts= ()=>{
     return new Promise( (resolve, reject) =>  {
     setTimeout (() => {
         resolve( items)
-    }, 500);
+    }, 20);
     })
 }
 
@@ -61,6 +61,6 @@ export const getProductById = (id)=>{
     return new Promise( (resolve, reject) =>  {
     setTimeout (() => {
         resolve( items.find (e=> e.id === id*1))
-    }, 3000);
+    }, 50);
     })
 }

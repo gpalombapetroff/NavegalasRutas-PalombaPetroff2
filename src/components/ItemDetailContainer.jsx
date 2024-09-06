@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { getProductById } from '../asyncmock'
 import { useParams } from 'react-router-dom'
+import {ItemDetail} from './ItemDetail'
+import { db } from '../servicios/firebaseconfig'
+import { getDoc, doc } from 'firebase/firestore'
 
-const ItemDetailContainer = () => {
+export const ItemDetailContainer = () => {
     const [prod, setProd] = useState({})
   
   const [cargando, setCargando] = useState(true)
@@ -12,11 +15,18 @@ const ItemDetailContainer = () => {
         
         setCargando(true)
         
-        getProductById(id)
+        /*getProductById(id)
         .then(res => {
           setProd(res)
         setCargando(false)
-        })
+        })*/
+       const productRef = doc(db, "productos", id)
+        getDoc(productRef).then(snapshot => {
+          setProd( snapshot.data())
+        
+        }
+
+        ).finally(setCargando(false))
       },[id])
  
  const mostrarSiguiente=()=>{ 
@@ -30,14 +40,13 @@ const ItemDetailContainer = () => {
   )
  }
     return (
-    <div className='card'>
-      <h3>{prod.nombre}</h3>
-      <img src={prod.image} alt="" />
-    <p>{prod.precio}</p>
-    
-    <button onClick={mostrarSiguiente}>ver siguiente</button>
-    </div>
-  )
+    <>
+  {prod &&  
+  <ItemDetail prod={prod}/>
+  }
+  
+  </>
+    )
 }
 
-export default ItemDetailContainer
+

@@ -6,7 +6,9 @@ return (
 <>
 {items?.map( (e) =>{
     return (
+    
     <Item  key={e.id} producto={e} precio={e.precio}/>
+    
     )
 })}
 </>
